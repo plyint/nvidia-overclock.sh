@@ -69,7 +69,7 @@ XWindows.  If you already have XWindows installed and configured to run
 automatically on boot, then omit the -x option:
 
 ```
-./nvidia-overclock.sh install-svc
+sudo /usr/local/bin/nvidia-overclock.sh install-svc
 ```
 
 ## Usage
