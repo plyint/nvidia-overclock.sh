@@ -75,13 +75,6 @@ log() {
   fi
 }
 
-i_am_root() {
-  if [ "$EUID" -ne 0 ]; then
-    log "Please run as root."
-    exit
-  fi
-}
-
 xserver_up() {
   # Give Xserver 10 seconds to come up	
   sleep 5
@@ -311,8 +304,6 @@ case $1 in
     # and installs the service so it will be run
     # everytime the system starts up.
 		
-    i_am_root
-
     # If -x parameter is passed then replace
 		# the /etc/X11/Xwrapper.config file
     shift
@@ -326,7 +317,6 @@ case $1 in
     ;;
   uninstall-svc )
     # Removes the systemd service
-    i_am_root
     restore_Xwrapper_config
     uninstall_svc
     ;;
